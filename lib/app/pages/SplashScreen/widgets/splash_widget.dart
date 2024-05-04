@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_app/app/constants/asset_constants.dart';
 
 class SplashWidget extends StatelessWidget {
   const SplashWidget({Key? key}) : super(key: key);
@@ -6,11 +7,7 @@ class SplashWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Icon(
-        Icons.hotel_class_rounded,
-        size: 50.0,
-        color: Colors.amber[400],
-      ),
+      child: Image.asset(AppImages.marvelLogo),
     );
   }
 }
