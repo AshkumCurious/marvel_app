@@ -1,16 +1,17 @@
 import 'package:get/get.dart';
+import 'package:marvel_app/app/navigators/navigators.dart';
 
 class SplashController extends GetxController {
-  void navigateToHome() async {
+  void navigateTo() async {
     Future.delayed(
-      const Duration(seconds: 2),
-      // NavigateTo.goToHome,
+      const Duration(seconds: 3),
+      NavigateTo.goToWelcome,
     );
   }
 
   @override
   onInit() async {
-    navigateToHome();
+    navigateTo();
     super.onInit();
   }
 }

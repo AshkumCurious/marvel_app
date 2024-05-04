@@ -2,6 +2,6 @@
 part of 'app_pages.dart';
 
 abstract class Routes {
-  static const splash ='/splash_screen';
+  static const String splash = '/';
+  static const String welcome = '/welcome_page';
 }
-
