@@ -5,8 +5,8 @@ class SplashController extends GetxController {
   void navigateTo() async {
     Future.delayed(
       const Duration(seconds: 3),
-      // NavigateTo.goToWelcome,
-      NavigateTo.goToHome,
+      NavigateTo.goToWelcome,
+     
     );
   }
 
