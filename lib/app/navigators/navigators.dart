@@ -7,4 +7,9 @@ abstract class NavigateTo {
   static void goToWelcome() {
     Get.offAllNamed(Routes.welcome);
   }
+
+  // /This function will navigate to walkThrough Screen.
+  static void goToHome() {
+    Get.offAllNamed(Routes.home);
+  }
 }
