@@ -8,11 +8,7 @@ class SplashBinding extends Bindings {
   void dependencies() {
     Get.lazyPut(
       () => SplashController(
-        Get.put(
-          SplashPresenter(
-           
-          ),
-        ),
+        
       ),
       fenix: true,
     );
