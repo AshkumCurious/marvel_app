@@ -1,8 +1,10 @@
 
 import 'package:get/get.dart';
+import 'package:marvel_app/app/pages/home_page/home_page_view.dart';
 
 import '../pages/SplashScreen/splash_binding.dart';
 import '../pages/SplashScreen/splash_view.dart';
+import '../pages/home_page/home_page_binding.dart';
 
 part 'app_routes.dart';
 
@@ -18,6 +20,13 @@ class AppPages {
         page: SplashScreen.new,
         transition: Transition.fadeIn,
         binding: SplashBinding(),
+        transitionDuration: fadeTransitionDuration),
+
+        GetPage<HomePage>(
+        name: Routes.home,
+        page: HomePage.new,
+        transition: Transition.fadeIn,
+        binding: HomePageBinding(),
         transitionDuration: fadeTransitionDuration),
   
   ];
