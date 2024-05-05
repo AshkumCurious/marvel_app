@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marvel_app/app/constants/asset_constants.dart';
+import 'package:marvel_app/app/navigators/navigators.dart';
 import 'package:marvel_app/app/pages/choose_avatar/choose_avatar_controller.dart';
 import 'package:marvel_app/app/theme/app_paddings.dart';
 import 'package:marvel_app/app/theme/app_textstyles.dart';
@@ -39,7 +40,11 @@ class ChooseAvatar extends StatelessWidget {
             },
             itemCount: 8,
           ),
-          AppButton.appButton(buttonText: "Looks Good", onPressed: () {}),
+          AppButton.appButton(
+              buttonText: "Looks Good",
+              onPressed: () {
+                NavigateTo.goToHome();
+              }),
         ],
       ),
     );
