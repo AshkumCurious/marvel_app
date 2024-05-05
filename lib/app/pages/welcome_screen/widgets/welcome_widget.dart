@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marvel_app/app/pages/welcome_screen/welcome_controller.dart';
 import 'package:marvel_app/app/theme/app_colors.dart';
+import 'package:marvel_app/app/widgets/app_button.dart';
 
 import '../../../navigators/navigators.dart';
 
@@ -56,7 +57,6 @@ class WelcomeWidget extends StatelessWidget {
             return slides[index];
           },
         ),
-
         (controller.currentPage.toString() != "5.0")
             ? Align(
                 alignment: Alignment.bottomCenter,
@@ -70,31 +70,17 @@ class WelcomeWidget extends StatelessWidget {
                 )
                 //  ),
                 )
-            : InkWell(
-                onTap: () {
-                  NavigateTo.goToHome();
-                },
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Lets dive into",
-                        style: TextStyle(color: Colors.red),
-                      ),
-                      SizedBox(
-                        width: 5.w,
-                      ),
-                      Icon(
-                        Icons.navigate_next_sharp,
-                        color: Colors.red,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-        // )
+            : Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    AppButton.appButton(buttonText: "Continue"),
+                    SizedBox(
+                      height: 100.h,
+                    ),
+                  ],
+                )),
       ],
     );
   }
