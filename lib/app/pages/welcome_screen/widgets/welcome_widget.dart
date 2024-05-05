@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marvel_app/app/pages/welcome_screen/welcome_controller.dart';
 import 'package:marvel_app/app/theme/app_colors.dart';
+import 'package:marvel_app/app/theme/app_textstyles.dart';
 import 'package:marvel_app/app/widgets/app_button.dart';
 
 import '../../../navigators/navigators.dart';
 
+// ignore: must_be_immutable
 class WelcomeWidget extends StatelessWidget {
   WelcomeWidget({super.key, required this.controller});
   WelcomeController controller;
@@ -19,14 +21,16 @@ class WelcomeWidget extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30.w),
-                child: Text(
-                  item['description'],
-                  style: TextStyle(
-                      color: AppColors.primaryWhite,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20.sp),
-                  textAlign: TextAlign.center,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 30.w,
+                ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    item['description'],
+                    style: AppTextStyles.welcomePageText,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               )
             ],
@@ -49,6 +53,7 @@ class WelcomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.bottomCenter,
       children: <Widget>[
         PageView.builder(
           controller: controller.pageViewController,
@@ -58,33 +63,24 @@ class WelcomeWidget extends StatelessWidget {
           },
         ),
         (controller.currentPage.toString() != "5.0")
-            ? Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  margin: EdgeInsets.only(top: 70.h),
-                  padding: EdgeInsets.symmetric(vertical: 40.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: indicator(),
-                  ),
-                )
-                //  ),
-                )
-            : Align(
-                alignment: Alignment.bottomCenter,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    AppButton.appButton(
-                        buttonText: "Continue",
-                        onPressed: () {
-                          NavigateTo.goToChooseAvatar();
-                        }),
-                    SizedBox(
-                      height: 100.h,
-                    ),
-                  ],
-                )),
+            ? Container(
+                // margin: EdgeInsets.only(top: 70.h),
+                padding: EdgeInsets.only(top: 15.h, bottom: 25.h),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: indicator(),
+                ),
+              )
+            : Padding(
+                padding: EdgeInsets.only(
+                  bottom: 60.h,
+                ),
+                child: AppButton.appButton(
+                    buttonText: "Continue",
+                    onPressed: () {
+                      NavigateTo.goToChooseAvatar();
+                    }),
+              ),
       ],
     );
   }

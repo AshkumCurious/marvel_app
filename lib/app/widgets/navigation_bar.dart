@@ -19,48 +19,31 @@ class AppBottomNavigationBar {
         color: AppColors.primaryBlack,
         backgroundColor: AppColors.primaryWhite,
         items: [
-          Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset(AppIcons.list),
-                const Text(
-                  AppText.characters,
-                  style: AppTextStyles.navBarText,
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset(AppIcons.home),
-                const Text(
-                  AppText.home,
-                  style: AppTextStyles.navBarText,
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset(AppIcons.more),
-                const Text(
-                  AppText.more,
-                  style: AppTextStyles.navBarText,
-                ),
-              ],
-            ),
-          )
+          navBarListItem(iconPath: AppIcons.list, text: AppText.characters),
+          navBarListItem(iconPath: AppIcons.home, text: AppText.home),
+          navBarListItem(iconPath: AppIcons.more, text: AppText.more),
         ]);
+  }
+
+  static Widget navBarListItem(
+      {required String iconPath, required String text}) {
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset(
+            iconPath,
+            height: 20.h,
+            width: 20.h,
+          ),
+          Text(
+            text,
+            style: AppTextStyles.navBarText,
+          ),
+        ],
+      ),
+    );
   }
 }

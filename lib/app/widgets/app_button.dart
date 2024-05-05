@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marvel_app/app/theme/app_colors.dart';
 import 'package:marvel_app/app/theme/app_textstyles.dart';
