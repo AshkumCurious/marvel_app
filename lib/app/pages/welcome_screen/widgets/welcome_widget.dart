@@ -75,7 +75,11 @@ class WelcomeWidget extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    AppButton.appButton(buttonText: "Continue"),
+                    AppButton.appButton(
+                        buttonText: "Continue",
+                        onPressed: () {
+                          NavigateTo.goToChooseAvatar();
+                        }),
                     SizedBox(
                       height: 100.h,
                     ),

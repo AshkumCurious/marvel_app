@@ -12,4 +12,8 @@ abstract class NavigateTo {
   static void goToHome() {
     Get.offAllNamed(Routes.home);
   }
+
+  static void goToChooseAvatar() {
+    Get.offAllNamed(Routes.chhoseAvatar);
+  }
 }

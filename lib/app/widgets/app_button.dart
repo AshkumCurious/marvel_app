@@ -1,14 +1,20 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marvel_app/app/theme/app_colors.dart';
 import 'package:marvel_app/app/theme/app_textstyles.dart';
 
 class AppButton {
-  static Widget appButton({required String buttonText}) {
+  static Widget appButton(
+      {required String buttonText,
+      double? width,
+      required VoidCallback onPressed}) {
     return SizedBox(
-      width: 300.w,
+      width: width ?? 300.w,
       child: FilledButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: FilledButton.styleFrom(
           textStyle: AppTextStyles.buttonText,
           backgroundColor: AppColors.primaryRed,
