@@ -6,7 +6,7 @@ import 'package:marvel_app/app/theme/app_textstyles.dart';
 class AppButton {
   static Widget appButton({required String buttonText}) {
     return SizedBox(
-      width: 0.6.sw,
+      width: 300.w,
       child: FilledButton(
         onPressed: () {},
         style: FilledButton.styleFrom(
