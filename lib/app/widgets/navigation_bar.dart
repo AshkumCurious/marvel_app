@@ -12,8 +12,9 @@ import 'package:marvel_app/app/theme/app_textstyles.dart';
 class AppBottomNavigationBar {
   static Widget navigationBar() {
     return CurvedNavigationBar(
-        height: 65.h,
-        buttonBackgroundColor: AppColors.primaryBlack,
+        height: 50.h,
+        onTap: (value) {},
+        buttonBackgroundColor: AppColors.primaryRed,
         index: 1,
         color: AppColors.primaryBlack,
         backgroundColor: AppColors.primaryWhite,
