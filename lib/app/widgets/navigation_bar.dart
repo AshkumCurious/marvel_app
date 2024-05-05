@@ -28,7 +28,7 @@ class AppBottomNavigationBar {
                 Image.asset(AppIcons.list),
                 const Text(
                   AppText.characters,
-                  style: AppTextStyles.white_14_500w,
+                  style: AppTextStyles.navBarText,
                 ),
               ],
             ),
@@ -42,7 +42,7 @@ class AppBottomNavigationBar {
                 Image.asset(AppIcons.home),
                 const Text(
                   AppText.home,
-                  style: AppTextStyles.white_14_500w,
+                  style: AppTextStyles.navBarText,
                 ),
               ],
             ),
@@ -56,7 +56,7 @@ class AppBottomNavigationBar {
                 Image.asset(AppIcons.more),
                 const Text(
                   AppText.more,
-                  style: AppTextStyles.white_14_500w,
+                  style: AppTextStyles.navBarText,
                 ),
               ],
             ),
