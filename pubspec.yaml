@@ -13,7 +13,13 @@ dependencies:
   cupertino_icons: ^1.0.6
   get:
   flutter_screenutil:
- 
+  flutter_secure_storage:
+  hive_flutter:
+  hive:
+  logger:
+  flutter_easyloading: any
+  internet_connection_checker: any
+  http:
   curved_navigation_bar: ^1.0.3
 dev_dependencies:
   flutter_test:
