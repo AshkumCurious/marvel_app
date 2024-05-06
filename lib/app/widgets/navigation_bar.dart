@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:marvel_app/app/constants/asset_constants.dart';
-import 'package:marvel_app/app/constants/text_constants.dart';
+import 'package:marvel_app/app/constants/app_text_constants.dart';
 import 'package:marvel_app/app/theme/app_colors.dart';
 
 import 'package:marvel_app/app/theme/app_textstyles.dart';
@@ -27,19 +27,21 @@ class AppBottomNavigationBar {
 
   static Widget navBarListItem(
       {required String iconPath, required String text}) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
+    return Container(
+      padding: const EdgeInsets.all(2.0),
+      height: 60.h,
+      width: 60.h,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Image.asset(
             iconPath,
-            height: 20.h,
-            width: 20.h,
           ),
           Text(
             text,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
             style: AppTextStyles.navBarText,
           ),
         ],
