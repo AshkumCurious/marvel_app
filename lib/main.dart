@@ -1,36 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'app/navigators/app_pages.dart';
+import 'data/helpers/connect_helper.dart';
+import 'data/repositories/data_repositories.dart';
+import 'device/repositories/device_repositories.dart';
+import 'domain/repositories/repository.dart';
 
 void main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
-    // await Hive.initFlutter();
-    // await Hive.openBox<dynamic>('hiveBox');
-    // await initServices();
+    await Hive.initFlutter();
+    await Hive.openBox<dynamic>('hiveBox');
+    await initServices();
     runApp(const MyApp());
   } catch (exception) {}
 }
 
-// Future<void> initServices() async {
-//   Get.put(Repository(
-//     Get.put(
-//       DeviceRepository(),
-//       permanent: true,
-//     ),
-//     Get.put(
-//       DataRepository(
-//         Get.put(
-//           ConnectHelper(),
-//           permanent: true,
-//         ),
-//       ),
-//       permanent: true,
-//     ),
-//   ));
+Future<void> initServices() async {
+  Get.put(Repository(
+    Get.put(
+      DeviceRepository(),
+      permanent: true,
+    ),
+    Get.put(
+      DataRepository(
+        Get.put(
+          ConnectHelper(),
+          permanent: true,
+        ),
+      ),
+      permanent: true,
+    ),
+  ));
 
-// }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
