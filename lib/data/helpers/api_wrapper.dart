@@ -8,10 +8,21 @@ import 'dart:convert';
 import '../../app/utils/utility.dart';
 import '../../domain/entities/enums.dart';
 import '../../domain/models/response_model.dart';
+import 'package:crypto/crypto.dart' as crypto;
 
 ///This class can call all the APIs and handle error status code.
 class ApiWrapper {
-  final String _baseUrl = '';
+  final String _baseUrl = 'https://gateway.marvel.com:443/';
+  final String publicKey = "5f83b402aff0aef2977897a69eea64f6";
+  final String privateKey = "8019ed41480be1387f3f505ba35f000552c56cb9";
+  final int timestamp = DateTime.now().millisecondsSinceEpoch ~/ 1000;
+  String hash = "";
+  String generateHash() {
+    hash = crypto.md5
+        .convert(utf8.encode('$timestamp$privateKey$publicKey'))
+        .toString();
+    return hash;
+  }
 
   ///Method to make call all types of request like get,post,put,delete.
   Future<ResponseModel> makeRequest(String url, Request request, dynamic data,
@@ -23,7 +34,9 @@ class ApiWrapper {
         ///Method to call get type request.
         case Request.get:
           {
-            var uri = _baseUrl + url;
+            // var uri = _baseUrl + url;
+            var uri =
+                "$_baseUrl$url?apikey=$publicKey&ts=$timestamp&hash=$hash";
             if (isLoading) Utility.showLoader();
             try {
               final response = await http

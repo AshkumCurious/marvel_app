@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'package:marvel_app/domain/models/get_character_listing.dart';
+import 'package:marvel_app/domain/models/response_model.dart';
+
 import '../../data/repositories/data_repositories.dart';
 import '../../device/repositories/device_repositories.dart';
 
@@ -10,6 +15,7 @@ class Repository {
 
   final DataRepository _dataRepository;
   final DeviceRepository _deviceRepository;
+  
 
   ///Clear data from local storage for [key].
   void clearData(dynamic key) {
@@ -121,4 +127,19 @@ class Repository {
       _dataRepository.deleteAllSecuredValues();
     }
   }
+
+  // Future<ResponseModel> getCharacterListing() async {
+  //   try {
+  //     var response = _dataRepository.getCharacterListing();
+
+  //     GetCharacterListing? getCharacterListingResponse;
+  //     if (!response.hasError) {
+  //       getCharacterListingResponse =
+  //           GetCharacterListing.fromJson(jsonDecode(response.data));
+  //     }
+  //     return getCharacterListingResponse!;
+  //   } catch (e) {
+  //      _deviceRepository.getCharacterListing();
+  //   }
+  // }
 }

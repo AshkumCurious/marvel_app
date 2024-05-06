@@ -72,4 +72,9 @@ class DeviceRepository extends DomainRepository {
   void saveValueSecurely(String key, String value) {
     _flutterSecureStorage.write(key: key, value: value);
   }
+
+  @override
+  Future<dynamic> getCharacterListing() async {
+    return null;
+  }
 }

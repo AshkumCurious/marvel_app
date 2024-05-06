@@ -4,7 +4,7 @@ import '../helpers/connect_helper.dart';
 class DataRepository implements DomainRepository {
   /// [connectHelper] : A connection helper which will connect to the
   /// remote to get the data.
-  DataRepository(this.connectHelper);
+  DataRepository(this.connectHelper, );
 
   final ConnectHelper connectHelper;
 
@@ -56,5 +56,10 @@ class DataRepository implements DomainRepository {
   @override
   void saveValueSecurely(String key, String value) {
     throw UnimplementedError();
+  }
+
+  @override
+  Future<dynamic> getCharacterListing() {
+    return connectHelper.getCharacterListing();
   }
 }

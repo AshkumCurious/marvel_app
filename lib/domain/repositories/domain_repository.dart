@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 
 abstract class DomainRepository {
   ///Get the string value for the [key]
@@ -41,4 +41,7 @@ abstract class DomainRepository {
 
   /// clear all data
   void clearBox();
+
+  ///get character listing
+  Future<dynamic> getCharacterListing();
 }
