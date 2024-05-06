@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:marvel_app/app/constants/asset_constants.dart';
-import 'package:marvel_app/app/constants/text_constants.dart';
+import 'package:marvel_app/app/constants/app_text_constants.dart';
 import 'package:marvel_app/app/theme/app_colors.dart';
 
 import 'package:marvel_app/app/theme/app_textstyles.dart';
