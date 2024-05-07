@@ -22,6 +22,7 @@ dependencies:
   http:
   curved_navigation_bar: ^1.0.3
   crypto: ^3.0.3
+  intl: ^0.19.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -36,5 +37,5 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
-    - assets/fonts/
+    # - assets/fonts/
   

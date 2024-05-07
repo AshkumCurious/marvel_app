@@ -1,5 +1,3 @@
-
-
 abstract class DomainRepository {
   ///Get the string value for the [key]
   ///
@@ -44,4 +42,7 @@ abstract class DomainRepository {
 
   ///get character listing
   Future<dynamic> getCharacterListing();
+
+  ///get character details
+  Future<dynamic> getCharacterDetails({required int characterId});
 }

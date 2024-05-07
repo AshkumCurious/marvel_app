@@ -1,7 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:marvel_app/domain/models/response_model.dart';
-
 import '../../domain/repositories/domain_repository.dart';
 
 class DeviceRepository extends DomainRepository {
@@ -76,6 +74,11 @@ class DeviceRepository extends DomainRepository {
 
   @override
   Future<dynamic> getCharacterListing() async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<dynamic> getCharacterDetails({required int characterId}) async {
     throw UnimplementedError();
   }
 }

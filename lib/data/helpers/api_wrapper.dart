@@ -36,9 +36,11 @@ class ApiWrapper {
           {
             // var uri = _baseUrl + url;
             var uri =
-                "$_baseUrl$url?apikey=$publicKey&ts=$timestamp&hash=$hash";
+                "$_baseUrl${url}apikey=$publicKey&ts=$timestamp&hash=${generateHash()}";
             if (isLoading) Utility.showLoader();
             try {
+              print(generateHash());
+              print(timestamp);
               final response = await http
                   .get(Uri.parse(uri), headers: headers)
                   .timeout(const Duration(seconds: 60));

@@ -1,12 +1,12 @@
-import 'package:marvel_app/domain/models/response_model.dart';
-
 import '../../domain/repositories/domain_repository.dart';
 import '../helpers/connect_helper.dart';
 
 class DataRepository implements DomainRepository {
   /// [connectHelper] : A connection helper which will connect to the
   /// remote to get the data.
-  DataRepository(this.connectHelper, );
+  DataRepository(
+    this.connectHelper,
+  );
 
   final ConnectHelper connectHelper;
 
@@ -63,5 +63,10 @@ class DataRepository implements DomainRepository {
   @override
   Future<dynamic> getCharacterListing() {
     return connectHelper.getCharacterListing();
+  }
+
+  @override
+  Future<dynamic> getCharacterDetails({required int characterId}) async {
+    return connectHelper.getCharacterDetails(characterId: characterId);
   }
 }
