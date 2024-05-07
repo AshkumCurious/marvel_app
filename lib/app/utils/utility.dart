@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:logger/logger.dart';
+import 'package:marvel_app/app/theme/app_colors.dart';
 
 import '../../domain/entities/enums.dart';
 import '../../domain/models/response_model.dart';
@@ -79,13 +80,21 @@ abstract class Utility {
     }
   }
 
+  ///Show Loader.
   static void showLoader() async {
-    await EasyLoading.show();
+    await Get.dialog(
+        Center(
+          child: CircularProgressIndicator(
+            color: AppColors.primaryRed,
+          ),
+        ),
+        barrierColor: AppColors.primaryBlack.withOpacity(0.7),
+        barrierDismissible: false);
   }
 
   ///Close Loader.
   static void closeLoader() {
-    EasyLoading.dismiss();
+    closeDialog();
   }
 
   ///Show info Dialogue. In which we can show a normal message like any
@@ -144,11 +153,9 @@ abstract class Utility {
     Get.dialog(CupertinoAlertDialog(
       title: Text(
         title,
-      
       ),
       content: Text(
         message,
-       
       ),
       actions: <Widget>[
         CupertinoDialogAction(
@@ -213,7 +220,7 @@ abstract class Utility {
         backgroundColor = Colors.black.withOpacity(0.7);
         break;
       case MessageType.success:
-        backgroundColor =Colors.green;
+        backgroundColor = Colors.green;
         break;
       default:
         backgroundColor = Colors.black;
