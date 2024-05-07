@@ -5,8 +5,8 @@ import 'package:marvel_app/app/theme/app_textstyles.dart';
 import 'package:marvel_app/app/widgets/app_button.dart';
 
 class HomePageWidget extends StatelessWidget {
-  const HomePageWidget({super.key});
-
+   HomePageWidget({super.key,required this.controller});
+  HomePageController controller;
   @override
   Widget build(BuildContext context) {
     // HomePageController controller = Get.find();
