@@ -1,3 +1,5 @@
+import 'package:marvel_app/domain/models/response_model.dart';
+
 import '../../domain/repositories/domain_repository.dart';
 import '../helpers/connect_helper.dart';
 

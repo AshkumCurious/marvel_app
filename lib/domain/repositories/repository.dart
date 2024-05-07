@@ -128,18 +128,18 @@ class Repository {
     }
   }
 
-  // Future<ResponseModel> getCharacterListing() async {
-  //   try {
-  //     var response = _dataRepository.getCharacterListing();
+  Future<GetCharacterListing> getCharacterListing() async {
+    try {
+      var response = await _dataRepository.getCharacterListing();
 
-  //     GetCharacterListing? getCharacterListingResponse;
-  //     if (!response.hasError) {
-  //       getCharacterListingResponse =
-  //           GetCharacterListing.fromJson(jsonDecode(response.data));
-  //     }
-  //     return getCharacterListingResponse!;
-  //   } catch (e) {
-  //      _deviceRepository.getCharacterListing();
-  //   }
-  // }
+      GetCharacterListing? getCharacterListingResponse;
+      if (!response.hasError) {
+        getCharacterListingResponse =
+            GetCharacterListing.fromJson(jsonDecode(response.data));
+      }
+      return getCharacterListingResponse!;
+    } catch (e) {
+      return await _deviceRepository.getCharacterListing();
+    }
+  }
 }

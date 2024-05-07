@@ -188,81 +188,81 @@ class ApiWrapper {
     }
   }
 
+  // / Method to return the API response based upon the status code of the server
+//   ResponseModel returnResponse(http.Response response) {
+//     if (response.statusCode == 200) {
+//       switch (jsonDecode(response.body)['returnCode']) {
+//         case 0:
+//           return ResponseModel(
+//               data: response.body,
+//               hasError: true,
+//               errorCode: response.statusCode);
+//         case 1:
+//           return ResponseModel(
+//             data: response.body,
+//             hasError: false,
+//             errorCode: response.statusCode,
+//           );
+//         case 5:
+//           return ResponseModel(
+//             data: response.body,
+//             hasError: true,
+//             errorCode: response.statusCode,
+//           );
+//         default:
+//           return ResponseModel(
+//               data: response.body,
+//               hasError: true,
+//               errorCode: response.statusCode);
+//       }
+//     } else {
+//       return ResponseModel(
+//           data: response.body, hasError: true, errorCode: response.statusCode);
+//     }
+//   }
+// }
+
   /// Method to return the API response based upon the status code of the server
   ResponseModel returnResponse(http.Response response) {
-    if (response.statusCode == 200) {
-      switch (jsonDecode(response.body)['returnCode']) {
-        case 0:
-          return ResponseModel(
-              data: response.body,
-              hasError: true,
-              errorCode: response.statusCode);
-        case 1:
-          return ResponseModel(
+    switch (response.statusCode) {
+      case 200:
+      case 201:
+      case 202:
+      case 203:
+      case 205:
+      case 208:
+        return ResponseModel(
             data: response.body,
             hasError: false,
-            errorCode: response.statusCode,
-          );
-        case 5:
-          return ResponseModel(
+            errorCode: response.statusCode);
+      case 400:
+      case 401:
+        return ResponseModel(
+          data: response.body,
+          hasError: true,
+          errorCode: response.statusCode,
+        );
+      case 406:
+        if (response.statusCode == 406) {
+          // connect
+        }
+        return ResponseModel(
+          data: response.body,
+          hasError: true,
+          errorCode: response.statusCode,
+        );
+      case 409:
+      case 500:
+      case 522:
+        return ResponseModel(
             data: response.body,
             hasError: true,
-            errorCode: response.statusCode,
-          );
-        default:
-          return ResponseModel(
-              data: response.body,
-              hasError: true,
-              errorCode: response.statusCode);
-      }
-    } else {
-      return ResponseModel(
-          data: response.body, hasError: true, errorCode: response.statusCode);
+            errorCode: response.statusCode);
+      default:
+        return ResponseModel(
+            data: response.body,
+            hasError: true,
+            errorCode: response.statusCode);
     }
   }
 }
-
-// /// Method to return the API response based upon the status code of the server
-// ResponseModel returnResponse(http.Response response) {
-//   switch (response.statusCode) {
-//     case 200:
-//     case 201:
-//     case 202:
-//     case 203:
-//     case 205:
-//     case 208:
-//       return ResponseModel(
-//           data: response.body,
-//           hasError: false,
-//           errorCode: response.statusCode);
-//     case 400:
-//     case 401:
-//       return ResponseModel(
-//         data: response.body,
-//         hasError: true,
-//         errorCode: response.statusCode,
-//       );
-//     case 406:
-//       if (response.statusCode == 406) {
-//         // connect
-//       }
-//       return ResponseModel(
-//         data: response.body,
-//         hasError: true,
-//         errorCode: response.statusCode,
-//       );
-//     case 409:
-//     case 500:
-//     case 522:
-//       return ResponseModel(
-//           data: response.body,
-//           hasError: true,
-//           errorCode: response.statusCode);
-//     default:
-//       return ResponseModel(
-//           data: response.body,
-//           hasError: true,
-//           errorCode: response.statusCode);
-//   }
-// }
-//

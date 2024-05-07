@@ -1,4 +1,5 @@
 import 'package:marvel_app/domain/domain.dart';
+import 'package:marvel_app/domain/models/response_model.dart';
 
 import 'api_wrapper.dart';
 
@@ -7,7 +8,7 @@ class ConnectHelper {
   final apiWrapper = ApiWrapper();
 
   ///get character listing
-  Future<dynamic> getCharacterListing() async {
+  Future<ResponseModel> getCharacterListing() async {
     var data = {};
     return apiWrapper.makeRequest("v1/public/characters", Request.get, data, true, {
       "Content-Type": "application/json; charset=utf-8",
